@@ -45,6 +45,7 @@ const Car = () => {
         {
           onSuccess: () => {
             setFormData(initialState);
+            setEditingItem(null)
           },
         }
       );
