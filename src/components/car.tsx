@@ -29,6 +29,7 @@ const Car = () => {
   const cars: ICar[] = data?.data ?? [];
   console.log(cars);
 
+  const {name, brand, price, color, power, release_date} = formData
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let car = {
@@ -72,7 +73,6 @@ const Car = () => {
     setFormData(car)
   }
 
-  const {name, brand, price, color, power, release_date} = formData
 
   return (
     <div className="container mx-auto">
