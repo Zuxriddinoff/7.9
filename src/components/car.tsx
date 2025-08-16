@@ -1,4 +1,4 @@
-import { memo, useState, type FormEvent } from 'react';
+import { memo} from 'react';
 import { useCar } from '../api/hooks/useCar';
 
 interface ICar {
@@ -11,20 +11,20 @@ interface ICar {
   power: number | string;
 }
 
-const initialState: ICar = {
-  name: "",
-  price: "",
-  brand: "",
-  color: "",
-  release_date: "",
-  power:""
-};
+// const initialState: ICar = {
+//   name: "",
+//   price: "",
+//   brand: "",
+//   color: "",
+//   release_date: "",
+//   power:""
+// };
 
 const Car = () => {
-    const {getCar, createCar, deleteCar, updateCar} = useCar()
+    const {getCar} = useCar()
     const { data } = getCar()
-    const [editingItem, setEditingItem] = useState<any>(null);
-    const [formData, setFormData] = useState<ICar>(initialState)
+    // const [editingItem, setEditingItem] = useState<any>(null);
+    // const [formData, setFormData] = useState<ICar>(initialState)
     
     const cars: ICar[] = data?.data ?? [];
     console.log(cars);
@@ -57,6 +57,12 @@ const Car = () => {
         { cars?.map((item:ICar) => (
             <div key={item.id}>
                 <h2>{item.name}</h2>
+                <p>{item.brand}</p>
+                <p>{item.price}</p>
+                <p>{item.color}</p>
+                <p>{item.release_date}</p>
+                <p>{item.power}</p>
+                <hr />
             </div>
         ))}
       </div>
